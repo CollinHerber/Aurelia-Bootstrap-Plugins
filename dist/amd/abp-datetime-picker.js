@@ -315,13 +315,17 @@ define(['exports', 'aurelia-framework', 'moment', 'jquery', './picker-global-opt
     };
 
     AbpDatetimePickerCustomElement.prototype.modelChanged = function modelChanged(newValue, oldValue) {
-      if (!(0, _moment2.default)(newValue, this._format, true).isValid() && newValue !== null) {
-        throw new Error('Datetimepicker, model.bind must be of type Date');
-      }
-      if (newValue !== oldValue && newValue) {
-        if (!oldValue || !(0, _moment2.default)(newValue).isSame(oldValue)) {
-          this.value = (0, _moment2.default)(newValue, this._format, true).format(this._format);
+      try {
+        if (!(0, _moment2.default)(newValue, this._format, true).isValid() && newValue !== null) {
+          console.log('Datetimepicker, model.bind must be of type Date');
         }
+        if (newValue !== oldValue && newValue) {
+          if (!oldValue || !(0, _moment2.default)(newValue).isSame(oldValue)) {
+            this.value = (0, _moment2.default)(newValue, this._format, true).format(this._format);
+          }
+        }
+      } catch (e) {
+        console.log(e);
       }
     };
 

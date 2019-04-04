@@ -310,13 +310,17 @@ export class AbpDatetimePickerCustomElement {
   }
 
   modelChanged(newValue, oldValue) {
-    if (!moment(newValue, this._format, true).isValid() && newValue !== null) {
-      throw new Error('Datetimepicker, model.bind must be of type Date');
-    }
-    if (newValue !== oldValue && newValue) {
-      if (!oldValue || (!moment(newValue).isSame(oldValue))) {
-        this.value = moment(newValue, this._format, true).format(this._format);
+    try {
+      if (!moment(newValue, this._format, true).isValid() && newValue !== null) {
+        console.log('Datetimepicker, model.bind must be of type Date');
       }
+      if (newValue !== oldValue && newValue) {
+        if (!oldValue || (!moment(newValue).isSame(oldValue))) {
+          this.value = moment(newValue, this._format, true).format(this._format);
+        }
+      }
+    } catch(e) {
+      console.log(e);
     }
   }
 

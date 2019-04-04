@@ -1,25 +1,16 @@
-.chrome
-.idea
-.DS_STORE
-
-# Dependency directories
-bower_components
 jspm_packages
+bower_components
+.idea
+build
+doc
 node_modules
-
-# Build / ASP.Net Core
-*.suo
-*.user
-_ReSharper.*
-bin
-obj
-config
-packages
-
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-error.log
-package-lock.json
+printscreen
+screenshots
+test
+client-cli
+client-wp
+npm-debug.log
+karma.conf.js
+gulpfile.js
 yarn.lock
+npm-debug.log

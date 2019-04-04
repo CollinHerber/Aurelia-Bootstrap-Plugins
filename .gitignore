@@ -1,7 +1,6 @@
 jspm_packages
 bower_components
 .idea
-build
 doc
 node_modules
 printscreen

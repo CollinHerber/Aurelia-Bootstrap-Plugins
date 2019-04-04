@@ -1,18 +1,4 @@
 <template>
-  <!-- Bootstrap version 3 -->
-    <div if.bind="bootstrapVersion == 3" class.bind="parseBool(withDateIcon) ? 'input-group date' : 'date'">
-        <input type="text" class="form-control datetimepicker"
-               value.two-way="value & updateTrigger:'blur'"
-               model.bind="model"
-               blur.trigger="blur()"
-               placeholder.bind="placeholder"
-               readonly.bind="readonly"
-               element.bind="element">
-        <span if.bind="parseBool(withDateIcon)" class="input-group-addon" data-target="#datetimepicker" data-toggle="datetimepicker">
-            <span class.bind="iconBase === 'glyphicon' ? 'glyphicon glyphicon-calendar' : iconBase === 'font-awesome' ? 'fa fa-calendar' : 'fas fa-calendar-alt'"></span>
-        </span>
-    </div>
-
     <!-- Bootstrap version 4 -->
     <div if.bind="bootstrapVersion == 4" class.bind="parseBool(withDateIcon) ? 'input-group' : 'date'">
         <input type="text" class="form-control date datetimepicker"
@@ -24,7 +10,8 @@
                element.bind="element">
                <span if.bind="parseBool(withDateIcon)" class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
                   <button class.bind="buttonClass" type="button" click.delegate="showCalendar()">
-                    <span class.bind="iconBase === 'glyphicon' ? 'glyphicon glyphicon-calendar' : iconBase === 'font-awesome' ? 'fa fa-calendar' : 'fas fa-calendar-alt'"></span>
+                    <span if.bind="element.options.format !== 'LT'" class="fa fa-calendar"></span>
+                    <span if.bind="element.options.format === 'LT'" class="fa fa-clock-o"></span>
                   </button>
               </span>
     </div>

@@ -10,8 +10,7 @@
                element.bind="element">
                <span if.bind="parseBool(withDateIcon)" class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
                   <button class.bind="buttonClass" type="button" click.delegate="showCalendar()">
-                    <span if.bind="!useClockIcon" class="fa fa-calendar"></span>
-                    <span if.bind="useClockIcon" class="far fa-clock"></span>
+                    <span class.bind="element.options.format === 'LT' ? 'far fa-clock' : 'fa-calendar'"></span>
                   </button>
               </span>
     </div>

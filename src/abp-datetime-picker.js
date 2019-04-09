@@ -20,6 +20,7 @@ export class AbpDatetimePickerCustomElement {
 
   // picker options
   @bindable options = {};
+  @bindable useClockIcon = false;
 
   // events (from the View)
   @bindable onHide;
